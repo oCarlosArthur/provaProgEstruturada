@@ -16,5 +16,10 @@ namespace provaProgEstruturada
         {
             InitializeComponent();
         }
+
+        private void btnBuscarCEP_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
