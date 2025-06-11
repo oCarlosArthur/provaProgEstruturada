@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace provaProgEstruturada
 {
-    public partial class frmPrincipal : Form
+    public partial class frmCadProdutos : Form
     {
-        public frmPrincipal()
+        public frmCadProdutos()
         {
             InitializeComponent();
-        }
-
-        private void btnCadUsuarios_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
