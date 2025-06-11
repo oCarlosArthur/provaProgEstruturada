@@ -12,9 +12,16 @@ namespace provaProgEstruturada
 {
     public partial class frmCadUsuarios : Form
     {
-        public frmCadUsuarios()
+        string usuarioLogado;
+        public frmCadUsuarios(string usuarioLogado)
         {
             InitializeComponent();
+            this.usuarioLogado = usuarioLogado;
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

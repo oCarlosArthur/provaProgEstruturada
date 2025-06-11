@@ -31,7 +31,6 @@ namespace provaProgEstruturada
             }
             else
             {
-
                 frmCadUsuarios telaCadUsuarios = new frmCadUsuarios(usuarioLogado);
                 telaCadUsuarios.ShowDialog();
             }
