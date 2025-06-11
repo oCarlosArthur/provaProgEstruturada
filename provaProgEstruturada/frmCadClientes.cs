@@ -60,7 +60,53 @@ namespace provaProgEstruturada
             InitializeComponent();
         }
 
+        private async Task BuscarCEPAsync(string cep)
+        {
+            try
+            {
+                string url = $"https://viacep.com.br/ws/{cep}/json/";
+                HttpResponseMessage response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                string responseBody = await response.Content.ReadAsStringAsync();
+
+                string logradouro = GetJsonValue(responseBody, "logradouro");
+                string bairro = GetJsonValue(responseBody, "bairro");
+                string cidade = GetJsonValue(responseBody, "localidade");
+                string estado = GetJsonValue(responseBody, "uf");
+
+                txtLogradouro.Text = logradouro;
+                txtBairro.Text = bairro;
+                txtCidade.Text = cidade;
+                txtEstado.Text = estado;
+            }
+            catch (HttpRequestException ex)
+            {
+                MessageBox.Show("Erro ao buscar o CEP: " + ex.Message);
+            }
+        }
+
+        private string GetJsonValue(string json, string key)
+        {
+            string procura = $"\"{key}\":";
+            int start = json.IndexOf(procura);
+            if (start == -1) return "";
+
+            start += procura.Length;
+            while (json[start] == ' ' || json[start] == '\"') start++;
+
+            int end = start;
+            while (end < json.Length && json[end] != '\"' && json[end] != ',') end++;
+
+            return json.Substring(start, end - start).Replace("\"", "").Trim();
+        }
+
         private void btnBuscarCEP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmCadClientes_Load(object sender, EventArgs e)
         {
 
         }

@@ -312,6 +312,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCadClientes";
             this.Text = "frmCadClientes";
+            this.Load += new System.EventHandler(this.frmCadClientes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
