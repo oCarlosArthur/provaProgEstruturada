@@ -26,7 +26,7 @@ namespace provaProgEstruturada
 
             if (usuario == "ADMIN" && senha == "123")
             {
-                frmPrincipal telaPrinc = new frmPrincipal();
+                frmPrincipal telaPrinc = new frmPrincipal(usuario);
 
                 MessageBox.Show("Bem-vindo administrador!", "Login realizado!",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -35,7 +35,7 @@ namespace provaProgEstruturada
             }
             else if (ValidarUsuarioCSV(usuario, senha))
             {
-                frmPrincipal telaPrinc = new frmPrincipal();
+                frmPrincipal telaPrinc = new frmPrincipal(usuario);
 
                 MessageBox.Show("Bem-vindo usuário!", "Login realizado!",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);

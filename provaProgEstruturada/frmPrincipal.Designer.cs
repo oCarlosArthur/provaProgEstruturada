@@ -53,6 +53,7 @@
             this.btnCadClientes.TabIndex = 1;
             this.btnCadClientes.Text = "Cadastro de Clientes";
             this.btnCadClientes.UseVisualStyleBackColor = true;
+            this.btnCadClientes.Click += new System.EventHandler(this.btnCadClientes_Click);
             // 
             // btnCadProdutos
             // 
@@ -62,6 +63,7 @@
             this.btnCadProdutos.TabIndex = 2;
             this.btnCadProdutos.Text = "Cadastro de Produtos";
             this.btnCadProdutos.UseVisualStyleBackColor = true;
+            this.btnCadProdutos.Click += new System.EventHandler(this.btnCadProdutos_Click);
             // 
             // btnCadPedidos
             // 
@@ -71,6 +73,7 @@
             this.btnCadPedidos.TabIndex = 3;
             this.btnCadPedidos.Text = "Cadastro de Pedidos";
             this.btnCadPedidos.UseVisualStyleBackColor = true;
+            this.btnCadPedidos.Click += new System.EventHandler(this.btnCadPedidos_Click);
             // 
             // btnCadUsuarios
             // 
@@ -90,6 +93,7 @@
             this.btnConsultarPedidos.TabIndex = 5;
             this.btnConsultarPedidos.Text = "Consultar Pedidos";
             this.btnConsultarPedidos.UseVisualStyleBackColor = true;
+            this.btnConsultarPedidos.Click += new System.EventHandler(this.btnConsultarPedidos_Click);
             // 
             // frmPrincipal
             // 
