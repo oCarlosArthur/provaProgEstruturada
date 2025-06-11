@@ -88,6 +88,7 @@
             this.btnAtualizar.TabIndex = 5;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
             // btnExcluir
             // 
@@ -97,6 +98,7 @@
             this.btnExcluir.TabIndex = 6;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // listUsuarios
             // 
@@ -105,6 +107,7 @@
             this.listUsuarios.Name = "listUsuarios";
             this.listUsuarios.Size = new System.Drawing.Size(377, 186);
             this.listUsuarios.TabIndex = 7;
+            this.listUsuarios.SelectedIndexChanged += new System.EventHandler(this.listUsuarios_SelectedIndexChanged);
             // 
             // frmCadUsuarios
             // 
