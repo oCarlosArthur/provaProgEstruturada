@@ -96,5 +96,25 @@ namespace provaProgEstruturada
             AtualizarLista();
             LimparCampos();
         }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            string cod = txtCodigo.Text.Trim();
+            for (int i = 0; i < produtos.Count; i++)
+            {
+                if (produtos[i][0] == cod)
+                {
+                    produtos[i][1] = txtNome.Text.Trim();
+                    produtos[i][2] = txtPreco.Text.Trim();
+                    produtos[i][3] = txtDescricao.Text.Trim();
+                    SalvarProdutos();
+                    AtualizarLista();
+                    LimparCampos();
+                    return;
+                }
+            }
+            MessageBox.Show("Produto não encontrado.", "Erro!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
