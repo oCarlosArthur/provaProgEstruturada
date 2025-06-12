@@ -42,6 +42,16 @@ namespace provaProgEstruturada
             }
         }
 
+        private void SalvarProdutos()
+        {
+            List<string> linhas = new List<string>();
+            foreach (string[] p in produtos)
+            {
+                linhas.Add(p[0] + "," + p[1] + "," + p[2] + "," + p[3]);
+            }
+            File.WriteAllLines(caminhoProdutos, linhas);
+        }
+
         public frmCadProdutos()
         {
             InitializeComponent();
