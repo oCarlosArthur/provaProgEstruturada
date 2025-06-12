@@ -16,6 +16,9 @@ namespace provaProgEstruturada
         string caminhoPedidos = @"C:\Users\Usuario\Desktop\Faculdade\provaProgEstruturada\arquivosCsv\pedidos.csv";
         string caminhoItens = @"C:\Users\Usuario\Desktop\Faculdade\provaProgEstruturada\arquivosCsv\itenspedido.csv";
         string caminhoProdutos = @"C:\Users\Usuario\Desktop\Faculdade\provaProgEstruturada\arquivosCsv\produtos.csv";
+       
+        List<string[]> produtos = new List<string[]>();
+      
         public frmConsultaPedidos()
         {
             InitializeComponent();
