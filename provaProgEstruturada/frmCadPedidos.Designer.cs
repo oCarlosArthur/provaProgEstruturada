@@ -80,6 +80,7 @@
             this.btnAdicionarItem.TabIndex = 27;
             this.btnAdicionarItem.Text = "Adicionar Item";
             this.btnAdicionarItem.UseVisualStyleBackColor = true;
+            this.btnAdicionarItem.Click += new System.EventHandler(this.btnAdicionarItem_Click);
             // 
             // lblTotal
             // 

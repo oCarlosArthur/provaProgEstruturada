@@ -98,5 +98,39 @@ namespace provaProgEstruturada
             }
             lblTotal.Text = "Total: R$ " + total.ToString("0.00");
         }
+
+        private void btnAdicionarItem_Click(object sender, EventArgs e)
+        {
+            if (cmbProduto.SelectedIndex < 0 || txtQuantidade.Text == "")
+                return;
+
+            string codProduto = cmbProduto.SelectedItem.ToString().Split('-')[0].Trim();
+            string quantidade = txtQuantidade.Text.Trim();
+            string nome = "";
+            string preco = "0";
+
+            // Verifica se o produto já está na lista
+            foreach (ListViewItem prodItem in listItens.Items)
+            {
+                if (prodItem.Text == codProduto)
+                {
+                    MessageBox.Show("Este produto já foi adicionado ao pedido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // Busca o nome e preço do produto
+            foreach (var p in produtos)
+            {
+                if (p[0] == codProduto)
+                {
+                    nome = p[1];
+                    preco = p[2];
+                    break;
+                }
+            }
+
+            double totalItem = Convert.ToDouble(preco) * Convert.ToInt32(quantidade);
+        }
     }
 }
