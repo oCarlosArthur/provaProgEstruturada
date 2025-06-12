@@ -79,5 +79,18 @@ namespace provaProgEstruturada
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void CarregarProdutos()
+        {
+            produtos.Clear();
+            if (File.Exists(caminhoProdutos))
+            {
+                foreach (var linha in File.ReadAllLines(caminhoProdutos))
+                {
+                    var partes = linha.Split(',');
+                    if (partes.Length >= 3)
+                        produtos.Add(partes);
+                }
+            }
+        }
     }
 }
