@@ -16,5 +16,10 @@ namespace provaProgEstruturada
         {
             InitializeComponent();
         }
+
+        private void frmConsultaPedidos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
