@@ -167,5 +167,36 @@ namespace provaProgEstruturada
             AtualizarLista();
             LimparCampos();
         }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            string cpf = txtCPF.Text.Trim();
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                if (clientes[i][0] == cpf)
+                {
+                    clientes[i] = new string[]
+                        {cpf,
+                    txtNome.Text.Trim(),
+                    txtEmail.Text.Trim(),
+                    txtCEP.Text.Trim(),
+                    txtLogradouro.Text.Trim(),
+                    txtNumero.Text.Trim(),
+                    txtBairro.Text.Trim(),
+                    txtCidade.Text.Trim(),
+                    txtEstado.Text.Trim(),
+                    txtTelefone.Text.Trim(),
+                    txtWhatsApp.Text.Trim()};
+
+                    SalvarClientes();
+                    AtualizarLista();
+                    LimparCampos();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Cliente não encontrado.", "Erro!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
