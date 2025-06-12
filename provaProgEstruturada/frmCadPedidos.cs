@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,20 @@ namespace provaProgEstruturada
         public frmCadPedidos()
         {
             InitializeComponent();
+        }
+
+        private void CarregarClientes()
+        {
+            clientes.Clear();
+            if (File.Exists(caminhoClientes))
+            {
+                foreach (string linha in File.ReadAllLines(caminhoClientes))
+                {
+                    var partes = linha.Split(',');
+                    if (partes.Length >= 2)
+                        clientes.Add(partes);
+                }
+            }
         }
 
         private void frmCadPedidos_Load(object sender, EventArgs e)
