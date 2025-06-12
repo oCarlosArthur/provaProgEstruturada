@@ -195,6 +195,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmCadPedidos";
             this.Text = "frmCadPedidos";
+            this.Load += new System.EventHandler(this.frmCadPedidos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
