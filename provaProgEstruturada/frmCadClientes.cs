@@ -55,6 +55,21 @@ namespace provaProgEstruturada
             File.WriteAllLines(caminhoClientes, linhas);
         }
 
+        private void LimparCampos()
+        {
+            txtCPF.Text = "";
+            txtNome.Text = "";
+            txtEmail.Text = "";
+            txtCEP.Text = "";
+            txtLogradouro.Text = "";
+            txtNumero.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            txtEstado.Text = "";
+            txtTelefone.Text = "";
+            txtWhatsApp.Text = "";
+        }
+
         public frmCadClientes()
         {
             InitializeComponent();
@@ -111,13 +126,46 @@ namespace provaProgEstruturada
             }
             else
             {
-                MessageBox.Show("Digite um CEP válido com 8 dígitos.");
+                MessageBox.Show("Digite um CEP válido com 8 dígitos.", "Erro formato inválido!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void frmCadClientes_Load(object sender, EventArgs e)
         {
+            CarregarClientes();
+            AtualizarLista();
+        }
 
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            string cpf = txtCPF.Text.Trim();
+            foreach (var c in clientes)
+            {
+                if (c[0] == cpf)
+                {
+                    MessageBox.Show("CPF já cadastrado.", "Erro!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            string[] novo = {cpf,
+                txtNome.Text.Trim(),
+                txtEmail.Text.Trim(),
+                txtCEP.Text.Trim(),
+                txtLogradouro.Text.Trim(),
+                txtNumero.Text.Trim(),
+                txtBairro.Text.Trim(),
+                txtCidade.Text.Trim(),
+                txtEstado.Text.Trim(),
+                txtTelefone.Text.Trim(),
+                txtWhatsApp.Text.Trim()};
+
+            clientes.Add(novo);
+            SalvarClientes();
+            AtualizarLista();
+            LimparCampos();
         }
     }
 }
