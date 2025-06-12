@@ -62,6 +62,7 @@
             this.btnExcluirPedido.TabIndex = 29;
             this.btnExcluirPedido.Text = "Excluir Pedido";
             this.btnExcluirPedido.UseVisualStyleBackColor = true;
+            this.btnExcluirPedido.Click += new System.EventHandler(this.btnExcluirPedido_Click);
             // 
             // btnSalvarPedido
             // 

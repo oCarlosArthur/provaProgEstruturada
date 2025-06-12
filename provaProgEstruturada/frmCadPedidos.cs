@@ -181,7 +181,7 @@ namespace provaProgEstruturada
                     if (linha.StartsWith(codPedido + ","))
                     {
                         MessageBox.Show("Já existe um pedido com este código. Use outro.", "Aviso!", 
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -209,9 +209,25 @@ namespace provaProgEstruturada
                 File.AppendAllText(caminhoItens, codPedido + "," + item[0] + "," + item[1] + Environment.NewLine);
             }
 
-            MessageBox.Show("Pedido salvo com sucesso.");
+            MessageBox.Show("Pedido salvo com sucesso.","Sucesso!",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimparTudo();
         }
 
+        private void btnExcluirPedido_Click(object sender, EventArgs e)
+        {
+            string codPedido = txtCodPedido.Text.Trim();
+
+            // Excluir do pedidos.csv
+            var linhas = File.ReadAllLines(caminhoPedidos).Where(l => !l.StartsWith(codPedido + ",")).ToArray();
+            File.WriteAllLines(caminhoPedidos, linhas);
+
+            // Excluir do itenspedido.csv
+            var itens = File.ReadAllLines(caminhoItens).Where(l => !l.StartsWith(codPedido + ",")).ToArray();
+            File.WriteAllLines(caminhoItens, itens);
+
+            MessageBox.Show("Pedido excluído.");
+            LimparTudo();
+        }
     }
 }
