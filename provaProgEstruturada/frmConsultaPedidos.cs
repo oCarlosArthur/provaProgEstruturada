@@ -99,5 +99,15 @@ namespace provaProgEstruturada
             }
         }
 
+        private void listVPedidos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listVItens.Items.Clear();
+            lblTotal.Text = "Total: R$ 0,00";
+
+            if (listVPedidos.SelectedItems.Count == 0) return;
+
+            string codPedido = listVPedidos.SelectedItems[0].Text;
+            double total = 0;
+        }
     }
 }

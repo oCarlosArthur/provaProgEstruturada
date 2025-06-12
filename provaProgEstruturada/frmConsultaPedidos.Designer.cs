@@ -73,6 +73,7 @@
             this.listVPedidos.Size = new System.Drawing.Size(294, 184);
             this.listVPedidos.TabIndex = 10;
             this.listVPedidos.UseCompatibleStateImageBehavior = false;
+            this.listVPedidos.SelectedIndexChanged += new System.EventHandler(this.listVPedidos_SelectedIndexChanged);
             // 
             // txtCPF
             // 
