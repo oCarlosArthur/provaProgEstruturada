@@ -27,7 +27,13 @@ namespace provaProgEstruturada
 
         private void frmConsultaPedidos_Load(object sender, EventArgs e)
         {
+            listVItens.View = View.Details;
+            listVItens.Columns.Add("Produto", 150);
+            listVItens.Columns.Add("Qtd", 50);
+            listVItens.Columns.Add("Preço", 70);
+            listVItens.Columns.Add("Subtotal", 80);
 
+            CarregarProdutos();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -92,5 +98,6 @@ namespace provaProgEstruturada
                 }
             }
         }
+
     }
 }
