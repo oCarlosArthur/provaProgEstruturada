@@ -73,7 +73,14 @@ namespace provaProgEstruturada
 
         private void frmCadPedidos_Load(object sender, EventArgs e)
         {
-
+            CarregarClientes();
+            CarregarProdutos();
+            listItens.View = View.Details;
+            listItens.Columns.Add("Código", 60);
+            listItens.Columns.Add("Produto", 150);
+            listItens.Columns.Add("Qtd", 50);
+            listItens.Columns.Add("Preço", 80);
+            listItens.Columns.Add("Subtotal", 100);
         }
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
