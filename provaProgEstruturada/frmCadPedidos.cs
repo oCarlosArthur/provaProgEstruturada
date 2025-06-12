@@ -59,6 +59,18 @@ namespace provaProgEstruturada
             }
         }
 
+        private void LimparTudo()
+        {
+            txtCPF.Text = "";
+            lblNomeCliente.Text = "";
+            txtCodPedido.Text = "";
+            txtQuantidade.Text = "";
+            cmbProduto.SelectedIndex = -1;
+            listItens.Items.Clear();
+            lblTotal.Text = "Total: R$ 0,00";
+            itensTemporarios.Clear();
+        }
+
         private void frmCadPedidos_Load(object sender, EventArgs e)
         {
 
@@ -174,6 +186,32 @@ namespace provaProgEstruturada
                     }
                 }
             }
+
+            double total = 0;
+            foreach (var item in itensTemporarios)
+            {
+                foreach (var p in produtos)
+                {
+                    if (p[0] == item[0])
+                    {
+                        total += Convert.ToDouble(p[2]) * Convert.ToInt32(item[1]);
+                        break;
+                    }
+                }
+            }
+
+            // Salva o pedido
+            File.AppendAllText(caminhoPedidos, codPedido + "," + cpf + "," + total.ToString("0.00") + Environment.NewLine);
+
+            // Salva os itens do pedido
+            foreach (var item in itensTemporarios)
+            {
+                File.AppendAllText(caminhoItens, codPedido + "," + item[0] + "," + item[1] + Environment.NewLine);
+            }
+
+            MessageBox.Show("Pedido salvo com sucesso.");
+            LimparTudo();
         }
+
     }
 }
