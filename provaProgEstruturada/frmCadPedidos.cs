@@ -114,7 +114,8 @@ namespace provaProgEstruturada
             {
                 if (prodItem.Text == codProduto)
                 {
-                    MessageBox.Show("Este produto já foi adicionado ao pedido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Este produto já foi adicionado ao pedido.", "Aviso", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
             }
@@ -145,6 +146,34 @@ namespace provaProgEstruturada
             itensTemporarios.Add(new string[] { codProduto, quantidade });
 
             AtualizarTotal();
+        }
+
+        private void btnSalvarPedido_Click(object sender, EventArgs e)
+        {
+            string codPedido = txtCodPedido.Text.Trim();
+            string cpf = txtCPF.Text.Trim();
+
+            if (codPedido == "" || cpf == "")
+            {
+                MessageBox.Show("Informe o código do pedido e o CPF do cliente.","Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Verifica se o código do pedido já existe
+            if (File.Exists(caminhoPedidos))
+            {
+                var linhasPedidos = File.ReadAllLines(caminhoPedidos);
+                foreach (var linha in linhasPedidos)
+                {
+                    if (linha.StartsWith(codPedido + ","))
+                    {
+                        MessageBox.Show("Já existe um pedido com este código. Use outro.", "Aviso!", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+            }
         }
     }
 }

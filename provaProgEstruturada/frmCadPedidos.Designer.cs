@@ -71,6 +71,7 @@
             this.btnSalvarPedido.TabIndex = 28;
             this.btnSalvarPedido.Text = "Salvar Pedido";
             this.btnSalvarPedido.UseVisualStyleBackColor = true;
+            this.btnSalvarPedido.Click += new System.EventHandler(this.btnSalvarPedido_Click);
             // 
             // btnAdicionarItem
             // 
