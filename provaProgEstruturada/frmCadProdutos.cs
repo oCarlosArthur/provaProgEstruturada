@@ -67,7 +67,34 @@ namespace provaProgEstruturada
 
         private void frmCadProdutos_Load(object sender, EventArgs e)
         {
+            CarregarProdutos();
+            AtualizarLista();
+        }
 
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            string cod = txtCodigo.Text.Trim();
+            string nome = txtNome.Text.Trim();
+            string preco = txtPreco.Text.Trim();
+            string desc = txtDescricao.Text.Trim();
+
+            if (cod == "" || nome == "" || preco == "") return;
+
+            // impede duplicado
+            foreach (string[] p in produtos)
+            {
+                if (p[0] == cod)
+                {
+                    MessageBox.Show("Código já existe.", "Erro!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            produtos.Add(new string[] { cod, nome, preco, desc });
+            SalvarProdutos();
+            AtualizarLista();
+            LimparCampos();
         }
     }
 }
