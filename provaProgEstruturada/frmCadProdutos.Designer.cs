@@ -134,6 +134,7 @@
             this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // listProdutos
             // 
@@ -142,6 +143,7 @@
             this.listProdutos.Name = "listProdutos";
             this.listProdutos.Size = new System.Drawing.Size(421, 251);
             this.listProdutos.TabIndex = 11;
+            this.listProdutos.SelectedIndexChanged += new System.EventHandler(this.listProdutos_SelectedIndexChanged);
             // 
             // frmCadProdutos
             // 

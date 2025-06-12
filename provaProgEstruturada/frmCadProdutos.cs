@@ -116,5 +116,43 @@ namespace provaProgEstruturada
             MessageBox.Show("Produto não encontrado.", "Erro!",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            string cod = txtCodigo.Text.Trim();
+            for (int i = 0; i < produtos.Count; i++)
+            {
+                if (produtos[i][0] == cod)
+                {
+                    produtos.RemoveAt(i);
+                    SalvarProdutos();
+                    AtualizarLista();
+                    LimparCampos();
+                    return;
+                }
+            }
+            MessageBox.Show("Produto não encontrado.", "Erro!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void listProdutos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listProdutos.SelectedIndex >= 0)
+            {
+                string cod = listProdutos.SelectedItem.ToString().Split('-')[0].Trim();
+                foreach (string[] p in produtos)
+                {
+                    if (p[0] == cod)
+                    {
+                        txtCodigo.Text = p[0];
+                        txtNome.Text = p[1];
+                        txtPreco.Text = p[2];
+                        txtDescricao.Text = p[3];
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 }
