@@ -131,6 +131,20 @@ namespace provaProgEstruturada
             }
 
             double totalItem = Convert.ToDouble(preco) * Convert.ToInt32(quantidade);
+
+            // Adiciona o item no ListView com colunas
+            ListViewItem novoItem = new ListViewItem(codProduto);     // Código
+            novoItem.SubItems.Add(nome);                              // Nome
+            novoItem.SubItems.Add(quantidade);                        // Quantidade
+            novoItem.SubItems.Add(preco);                             // Preço
+            novoItem.SubItems.Add(totalItem.ToString("0.00"));        // Subtotal
+
+            listItens.Items.Add(novoItem);
+
+            // Adiciona à lista temporária para salvar depois
+            itensTemporarios.Add(new string[] { codProduto, quantidade });
+
+            AtualizarTotal();
         }
     }
 }
