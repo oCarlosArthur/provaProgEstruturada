@@ -137,7 +137,9 @@ namespace provaProgEstruturada
         {
             if (listUsuarios.SelectedItem == null) return;
 
-            string nome = listUsuarios.SelectedItem.ToString();
+            string selecionado = listUsuarios.SelectedItem.ToString();
+            string nome = selecionado.Split('-')[0].Trim();
+
             if (nome == "ADMIN")
             {
                 MessageBox.Show("Não pode excluir o ADMIN.");
@@ -160,7 +162,9 @@ namespace provaProgEstruturada
         {
             if (listUsuarios.SelectedItem == null) return;
 
-            string nome = listUsuarios.SelectedItem.ToString();
+            string selecionado = listUsuarios.SelectedItem.ToString();
+            string nome = selecionado.Split('-')[0].Trim();
+
             foreach (string[] u in usuarios)
             {
                 if (u[0] == nome)
