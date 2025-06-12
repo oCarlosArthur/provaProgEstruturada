@@ -198,5 +198,24 @@ namespace provaProgEstruturada
             MessageBox.Show("Cliente não encontrado.", "Erro!",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            string cpf = txtCPF.Text.Trim();
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                if (clientes[i][0] == cpf)
+                {
+                    clientes.RemoveAt(i);
+                    SalvarClientes();
+                    AtualizarLista();
+                    LimparCampos();
+                    return;
+                }
+            }
+
+            MessageBox.Show("Cliente não encontrado.", "Erro!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
