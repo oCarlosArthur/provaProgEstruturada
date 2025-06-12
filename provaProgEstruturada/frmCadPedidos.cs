@@ -79,5 +79,24 @@ namespace provaProgEstruturada
             MessageBox.Show("Cliente não encontrado.", "Erro!",
             MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void AtualizarTotal()
+        {
+            double total = 0;
+            foreach (var item in itensTemporarios)
+            {
+                string cod = item[0];
+                int qtd = Convert.ToInt32(item[1]);
+                foreach (var p in produtos)
+                {
+                    if (p[0] == cod)
+                    {
+                        total += Convert.ToDouble(p[2]) * qtd;
+                        break;
+                    }
+                }
+            }
+            lblTotal.Text = "Total: R$ " + total.ToString("0.00");
+        }
     }
 }
