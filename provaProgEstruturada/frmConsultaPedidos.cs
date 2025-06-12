@@ -12,6 +12,10 @@ namespace provaProgEstruturada
 {
     public partial class frmConsultaPedidos : Form
     {
+        string caminhoClientes = @"C:\Users\Usuario\Desktop\Faculdade\provaProgEstruturada\arquivosCsv\clientes.csv";
+        string caminhoPedidos = @"C:\Users\Usuario\Desktop\Faculdade\provaProgEstruturada\arquivosCsv\pedidos.csv";
+        string caminhoItens = @"C:\Users\Usuario\Desktop\Faculdade\provaProgEstruturada\arquivosCsv\itenspedido.csv";
+        string caminhoProdutos = @"C:\Users\Usuario\Desktop\Faculdade\provaProgEstruturada\arquivosCsv\produtos.csv";
         public frmConsultaPedidos()
         {
             InitializeComponent();
