@@ -34,7 +34,7 @@ namespace provaProgEstruturada
             {
                 foreach (string linha in File.ReadAllLines(caminhoClientes))
                 {
-                    var partes = linha.Split(',');
+                    var partes = linha.Split(';');
                     if (partes.Length >= 2)
                         clientes.Add(partes);
                 }
@@ -75,6 +75,7 @@ namespace provaProgEstruturada
         {
             CarregarClientes();
             CarregarProdutos();
+            
             listItens.View = View.Details;
             listItens.Columns.Add("Código", 60);
             listItens.Columns.Add("Produto", 150);
@@ -85,18 +86,21 @@ namespace provaProgEstruturada
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
-            string cpf = txtCPF.Text.Trim();
+            string cpfDigitado = txtCPF.Text.Trim();
             lblNomeCliente.Text = "";
+
             foreach (var c in clientes)
             {
-                if (c[0] == cpf)
+                string cpfArquivo = c[0].Trim();  // remove espaços antes da comparação
+                if (cpfArquivo == cpfDigitado)
                 {
-                    lblNomeCliente.Text = c[1]; // nome
+                    lblNomeCliente.Text = c[1].Trim();
                     return;
                 }
             }
+
             MessageBox.Show("Cliente não encontrado.", "Erro!",
-            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void AtualizarTotal()
