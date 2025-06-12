@@ -52,6 +52,14 @@ namespace provaProgEstruturada
             File.WriteAllLines(caminhoProdutos, linhas);
         }
 
+        private void LimparCampos()
+        {
+            txtCodigo.Text = "";
+            txtNome.Text = "";
+            txtPreco.Text = "";
+            txtDescricao.Text = "";
+        }
+
         public frmCadProdutos()
         {
             InitializeComponent();
