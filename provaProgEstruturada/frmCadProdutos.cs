@@ -33,6 +33,15 @@ namespace provaProgEstruturada
             }
         }
 
+        private void AtualizarLista()
+        {
+            listProdutos.Items.Clear();
+            foreach (string[] p in produtos)
+            {
+                listProdutos.Items.Add(p[0] + " - " + p[1]); // mostra: código - nome
+            }
+        }
+
         public frmCadProdutos()
         {
             InitializeComponent();
