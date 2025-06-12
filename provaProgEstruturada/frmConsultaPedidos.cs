@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,20 @@ namespace provaProgEstruturada
             lblNomeCliente.Text = "";
 
             string cpf = txtCPF.Text.Trim();
+
+            // Buscar nome do cliente
+            if (File.Exists(caminhoClientes))
+            {
+                foreach (var linha in File.ReadAllLines(caminhoClientes))
+                {
+                    var partes = linha.Split(',');
+                    if (partes[0] == cpf)
+                    {
+                        lblNomeCliente.Text = partes[1];
+                        break;
+                    }
+                }
+            }
         }
     }
 }
