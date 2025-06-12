@@ -63,5 +63,21 @@ namespace provaProgEstruturada
         {
 
         }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            string cpf = txtCPF.Text.Trim();
+            lblNomeCliente.Text = "";
+            foreach (var c in clientes)
+            {
+                if (c[0] == cpf)
+                {
+                    lblNomeCliente.Text = c[1]; // nome
+                    return;
+                }
+            }
+            MessageBox.Show("Cliente não encontrado.", "Erro!",
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

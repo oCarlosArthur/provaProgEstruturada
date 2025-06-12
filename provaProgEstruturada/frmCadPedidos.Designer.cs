@@ -115,6 +115,7 @@
             this.btnBuscarCliente.TabIndex = 23;
             this.btnBuscarCliente.Text = "Buscar Cliente";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // lblNomeCliente
             // 
