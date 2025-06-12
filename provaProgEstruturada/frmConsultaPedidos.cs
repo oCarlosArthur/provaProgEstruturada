@@ -28,5 +28,15 @@ namespace provaProgEstruturada
         {
 
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            listVPedidos.Items.Clear();
+            listVItens.Items.Clear();
+            lblTotal.Text = "Total: R$ 0,00";
+            lblNomeCliente.Text = "";
+
+            string cpf = txtCPF.Text.Trim();
+        }
     }
 }
