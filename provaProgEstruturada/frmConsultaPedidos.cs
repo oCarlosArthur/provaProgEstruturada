@@ -108,6 +108,42 @@ namespace provaProgEstruturada
 
             string codPedido = listVPedidos.SelectedItems[0].Text;
             double total = 0;
+
+            if (File.Exists(caminhoItens))
+            {
+                foreach (var linha in File.ReadAllLines(caminhoItens))
+                {
+                    var partes = linha.Split(',');
+                    if (partes.Length >= 3 && partes[0] == codPedido)
+                    {
+                        string codProduto = partes[1];
+                        string qtd = partes[2];
+                        string nome = "";
+                        string preco = "0";
+
+                        foreach (var p in produtos)
+                        {
+                            if (p[0] == codProduto)
+                            {
+                                nome = p[1];
+                                preco = p[2];
+                                break;
+                            }
+                        }
+
+                        double subtotal = Convert.ToDouble(preco) * Convert.ToInt32(qtd);
+                        total += subtotal;
+
+                        ListViewItem item = new ListViewItem(nome);
+                        item.SubItems.Add(qtd);
+                        item.SubItems.Add(preco);
+                        item.SubItems.Add(subtotal.ToString("0.00"));
+                        listVItens.Items.Add(item);
+                    }
+                }
+            }
+
+            lblTotal.Text = "Total: R$ " + total.ToString("0.00");
         }
     }
 }
