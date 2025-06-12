@@ -198,7 +198,7 @@ namespace provaProgEstruturada
             MessageBox.Show("Cliente não encontrado.", "Erro!",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
+        
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             string cpf = txtCPF.Text.Trim();
@@ -217,5 +217,32 @@ namespace provaProgEstruturada
             MessageBox.Show("Cliente não encontrado.", "Erro!",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void listClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listClientes.SelectedIndex >= 0)
+            {
+                string cpf = listClientes.SelectedItem.ToString().Split('-')[0].Trim();
+                foreach (string[] c in clientes)
+                {
+                    if (c[0] == cpf)
+                    {
+                        txtCPF.Text = c[0];
+                        txtNome.Text = c[1];
+                        txtEmail.Text = c[2];
+                        txtCEP.Text = c[3];
+                        txtLogradouro.Text = c[4];
+                        txtNumero.Text = c[5];
+                        txtBairro.Text = c[6];
+                        txtCidade.Text = c[7];
+                        txtEstado.Text = c[8];
+                        txtTelefone.Text = c[9];
+                        txtWhatsApp.Text = c[10];
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 }

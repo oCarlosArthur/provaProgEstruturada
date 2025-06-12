@@ -280,6 +280,7 @@
             this.listClientes.Name = "listClientes";
             this.listClientes.Size = new System.Drawing.Size(483, 277);
             this.listClientes.TabIndex = 26;
+            this.listClientes.SelectedIndexChanged += new System.EventHandler(this.listClientes_SelectedIndexChanged);
             // 
             // frmCadClientes
             // 
