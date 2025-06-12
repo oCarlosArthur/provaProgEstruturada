@@ -50,7 +50,7 @@ namespace provaProgEstruturada
             {
                 foreach (var linha in File.ReadAllLines(caminhoClientes))
                 {
-                    var partes = linha.Split(',');
+                    var partes = linha.Split(';');
                     if (partes[0] == cpf)
                     {
                         lblNomeCliente.Text = partes[1];
