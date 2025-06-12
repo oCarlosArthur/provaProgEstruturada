@@ -41,6 +41,24 @@ namespace provaProgEstruturada
             }
         }
 
+        private void CarregarProdutos()
+        {
+            produtos.Clear();
+            cmbProduto.Items.Clear();
+            if (File.Exists(caminhoProdutos))
+            {
+                foreach (string linha in File.ReadAllLines(caminhoProdutos))
+                {
+                    var partes = linha.Split(',');
+                    if (partes.Length >= 3)
+                    {
+                        produtos.Add(partes);
+                        cmbProduto.Items.Add(partes[0] + " - " + partes[1]); // código - nome
+                    }
+                }
+            }
+        }
+
         private void frmCadPedidos_Load(object sender, EventArgs e)
         {
 
