@@ -72,6 +72,12 @@ namespace provaProgEstruturada
                     }
                 }
             }
+
+            if (listVPedidos.Items.Count == 0)
+            {
+                MessageBox.Show("Nenhum pedido encontrado para este CPF.","Erro!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
