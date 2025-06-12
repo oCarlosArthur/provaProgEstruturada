@@ -101,9 +101,18 @@ namespace provaProgEstruturada
             return json.Substring(start, end - start).Replace("\"", "").Trim();
         }
 
-        private void btnBuscarCEP_Click(object sender, EventArgs e)
+        private async void btnBuscarCEP_Click(object sender, EventArgs e)
         {
+            string cep = txtCEP.Text.Trim().Replace("-", "");
 
+            if (cep.Length == 8)
+            {
+                await BuscarCEPAsync(cep);
+            }
+            else
+            {
+                MessageBox.Show("Digite um CEP válido com 8 dígitos.");
+            }
         }
 
         private void frmCadClientes_Load(object sender, EventArgs e)
