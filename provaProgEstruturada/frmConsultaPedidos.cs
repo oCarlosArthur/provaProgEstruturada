@@ -52,6 +52,26 @@ namespace provaProgEstruturada
                     }
                 }
             }
+
+            if (lblNomeCliente.Text == "")
+            {
+                MessageBox.Show("Cliente não encontrado.", "Erro!",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Buscar pedidos
+            if (File.Exists(caminhoPedidos))
+            {
+                foreach (var linha in File.ReadAllLines(caminhoPedidos))
+                {
+                    var partes = linha.Split(',');
+                    if (partes.Length >= 3 && partes[1] == cpf)
+                    {
+                        listVPedidos.Items.Add(partes[0]); // Código do pedido
+                    }
+                }
+            }
         }
     }
 }
